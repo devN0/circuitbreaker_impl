@@ -1,16 +1,11 @@
 package org.example;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-@Getter
-@Setter
 public class ServiceRegistry {
     private final Map<Service, State> serviceStateMap;
     private final Map<Service, Integer> failedRequests;
