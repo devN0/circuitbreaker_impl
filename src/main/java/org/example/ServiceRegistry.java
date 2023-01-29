@@ -30,7 +30,31 @@ public class ServiceRegistry {
         this.scheduledExecutorService = Executors.newScheduledThreadPool(1);
     }
 
-    public void addService(Service service) {
+    public Map<Service, State> getServiceStateMap() {
+        return serviceStateMap;
+    }
+
+    public Map<Service, Integer> getFailedRequests() {
+        return failedRequests;
+    }
+
+    public Map<Service, Integer> getSuccessfulRequests() {
+        return successfulRequests;
+    }
+
+    public int getMaxAllowedRequests() {
+        return maxAllowedRequests;
+    }
+
+    public int getFailureThreshold() {
+        return failureThreshold;
+    }
+
+    public int getRecoveryThreshold() {
+        return recoveryThreshold;
+    }
+
+    public void registerService(Service service) {
         serviceStateMap.put(service, State.CLOSED);
         successfulRequests.put(service, 0);
     }

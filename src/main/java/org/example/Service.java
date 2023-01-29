@@ -1,19 +1,33 @@
 package org.example;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@Getter
-@Setter
-@AllArgsConstructor
 public class Service {
     private String name;
     private String healthURL;
+
+    public Service(String name, String healthURL) {
+        this.name = name;
+        this.healthURL = healthURL;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getHealthURL() {
+        return healthURL;
+    }
+
+    public void setHealthURL(String healthURL) {
+        this.healthURL = healthURL;
+    }
 
     public String handleRequest(String request) throws Exception {
         // TODO: send request to specific service endpoint and return its response instead of returning String

@@ -1,13 +1,19 @@
 package org.example;
 
-import lombok.Data;
 import org.example.exceptions.IllegalCircuitBreakerStateException;
 
-@Data
 public class Foo { // circuit breaker impl
     private ServiceRegistry serviceRegistry;
 
     public Foo(ServiceRegistry serviceRegistry) {
+        this.serviceRegistry = serviceRegistry;
+    }
+
+    public ServiceRegistry getServiceRegistry() {
+        return serviceRegistry;
+    }
+
+    public void setServiceRegistry(ServiceRegistry serviceRegistry) {
         this.serviceRegistry = serviceRegistry;
     }
 
